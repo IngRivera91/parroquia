@@ -86,14 +86,18 @@ class LibroController extends BaseController
             'id',
             'Tipo Acta',
             'tipo_acta_id',
-            3,
+            4,
             $this->tiposActa,
             'label',
             '-1',
             1
         );
 
-        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Numero',1,'numero');
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Numero',1,'numero','','',true);
+
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Año inicio',1,'ano_inicio');
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Año fin',1,'ano_fin');
+
         $this->htmlInputFormulario[] = Html::selectActivo('Activo','activo',4,'1',2);
 
         $this->htmlInputFormulario[] = Html::submit('Registrar',$this->llaveFormulario,4);
@@ -117,14 +121,18 @@ class LibroController extends BaseController
             'id',
             'Tipo Acta',
             'tipo_acta_id',
-            3,
+            4,
             $this->tiposActa,
             'label',
             $registro['tipo_acta_id'],
             2
         );
 
-        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Numero',1,'numero','',$registro['numero']);
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Numero',1,'numero','',$registro['numero'],true);
+
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Año inicio',1,'ano_inicio','',$registro['ano_inicio']);
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Año fin',1,'ano_fin','',$registro['ano_fin']);
+
         $this->htmlInputFormulario[] = Html::selectActivo('Activo','activo',4,$registro['activo'],2);
         $this->htmlInputFormulario[] = Html::submit('Modificar',$this->llaveFormulario,4);
     }
@@ -140,12 +148,14 @@ class LibroController extends BaseController
 
         $tipo_acta_id = $_POST['tipo_acta_id'];
         $numero = $_POST['numero'];
+        $inicio = $_POST['ano_inicio'];
+        $fin = $_POST['ano_fin'];
         $registro = TipoActa::query()->find($tipo_acta_id)->toArray();
         $label = '';
         if (isset($registro['label'])) {
             $label = $registro['label'];
         }
-        $_POST['description_select'] = "{$label} #{$numero}";
+        $_POST['description_select'] = "Libro {$numero} ({$label} {$inicio} - {$fin})";
     }
 
 }
