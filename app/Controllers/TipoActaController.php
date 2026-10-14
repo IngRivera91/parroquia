@@ -27,6 +27,7 @@ class TipoActaController extends BaseController
         $this->camposLista = [
             'Id' => 'id',
             'Tipo Acta' => 'label',
+            'Numero Titulares' => 'numero_titulares',
             'Activo' => 'activo'
         ];
 
@@ -55,6 +56,7 @@ class TipoActaController extends BaseController
         $this->breadcrumb = true;
 
         $this->htmlInputFormulario[] = Html::inputTextRequired(4,'Tipo Acta',1,'label');
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Numero Titulares',2,'numero_titulares');
         $this->htmlInputFormulario[] = Html::selectActivo('Activo','activo',4,'1',2);
 
         $this->htmlInputFormulario[] = Html::submit('Registrar',$this->llaveFormulario,4);
@@ -81,6 +83,7 @@ class TipoActaController extends BaseController
         $registro = $this->registro;
 
         $this->htmlInputFormulario[] = Html::inputTextRequired(4,'Tipo Acta',1,'label','',$registro['label']);
+        $this->htmlInputFormulario[] = Html::inputTextRequired(4,'Numero Titulares',1,'numero_titulares','',$registro['numero_titulares']);
         $this->htmlInputFormulario[] = Html::selectActivo('Activo','activo',4,$registro['activo'],2);
         $this->htmlInputFormulario[] = Html::submit('Modificar',$this->llaveFormulario,4);
     }

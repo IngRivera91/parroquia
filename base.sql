@@ -11,7 +11,7 @@
  Target Server Version : 80403 (8.4.3)
  File Encoding         : 65001
 
- Date: 14/10/2026 10:42:27
+ Date: 14/10/2026 10:58:32
 */
 
 SET NAMES utf8mb4;
@@ -497,6 +497,7 @@ CREATE TABLE `tipos_acta`  (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `numero_titulares` int UNSIGNED NOT NULL DEFAULT 1,
   `activo` tinyint NOT NULL DEFAULT 1,
   `created_user_id` bigint UNSIGNED NULL DEFAULT NULL,
   `updated_user_id` bigint UNSIGNED NULL DEFAULT NULL,
@@ -508,8 +509,8 @@ CREATE TABLE `tipos_acta`  (
 -- ----------------------------
 -- Records of tipos_acta
 -- ----------------------------
-INSERT INTO `tipos_acta` VALUES (1, 'matrimonio', 'Matrimonio', 1, 2, 2, '2026-10-13 22:23:10', '2026-10-13 22:43:05');
-INSERT INTO `tipos_acta` VALUES (2, 'bautizo', 'Bautizo', 1, 2, 2, '2026-10-13 23:31:19', '2026-10-13 23:31:19');
+INSERT INTO `tipos_acta` VALUES (1, 'matrimonio', 'Matrimonio', 2, 1, 2, 2, '2026-10-13 22:23:10', '2026-10-13 22:43:05');
+INSERT INTO `tipos_acta` VALUES (2, 'bautizo', 'Bautizo', 1, 1, 2, 2, '2026-10-13 23:31:19', '2026-10-13 23:31:19');
 
 -- ----------------------------
 -- Table structure for users
