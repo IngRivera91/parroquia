@@ -11,7 +11,7 @@
  Target Server Version : 80403 (8.4.3)
  File Encoding         : 65001
 
- Date: 13/10/2026 23:44:19
+ Date: 14/10/2026 10:42:27
 */
 
 SET NAMES utf8mb4;
@@ -229,6 +229,8 @@ CREATE TABLE `libros`  (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `tipo_acta_id` bigint UNSIGNED NOT NULL,
   `numero` int UNSIGNED NOT NULL,
+  `ano_inicio` year NULL DEFAULT NULL,
+  `ano_fin` year NULL DEFAULT NULL,
   `description_select` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `activo` tinyint NOT NULL DEFAULT 1,
   `created_user_id` bigint UNSIGNED NULL DEFAULT NULL,
@@ -242,12 +244,12 @@ CREATE TABLE `libros`  (
 -- ----------------------------
 -- Records of libros
 -- ----------------------------
-INSERT INTO `libros` VALUES (1, 1, 1, 'Matrimonio #1', 1, 2, 2, '2026-10-13 23:15:55', '2026-10-13 23:40:26');
-INSERT INTO `libros` VALUES (2, 2, 1, 'Bautizo #1', 1, 2, 2, '2026-10-13 23:33:36', '2026-10-13 23:40:22');
-INSERT INTO `libros` VALUES (3, 1, 2, 'Matrimonio #2', 1, 2, 2, '2026-10-13 23:33:49', '2026-10-13 23:40:44');
-INSERT INTO `libros` VALUES (4, 2, 2, 'Bautizo #2', 1, 2, 2, '2026-10-13 23:34:06', '2026-10-13 23:40:46');
-INSERT INTO `libros` VALUES (5, 1, 3, 'Matrimonio #3', 1, 2, 2, '2026-10-13 23:40:58', '2026-10-13 23:41:45');
-INSERT INTO `libros` VALUES (6, 2, 3, 'Bautizo #3', 1, 2, 2, '2026-10-13 23:42:42', '2026-10-13 23:42:42');
+INSERT INTO `libros` VALUES (1, 1, 1, 1985, 1992, 'Libro 1 (Matrimonio 1985 - 1992)', 1, 2, 2, '2026-10-13 23:15:55', '2026-10-14 10:31:49');
+INSERT INTO `libros` VALUES (2, 2, 1, 1985, 1992, 'Libro 1 (Bautizo 1985 - 1992)', 1, 2, 2, '2026-10-13 23:33:36', '2026-10-14 10:41:47');
+INSERT INTO `libros` VALUES (3, 1, 2, 1985, 1992, 'Libro 2 (Matrimonio 1985 - 1992)', 1, 2, 2, '2026-10-13 23:33:49', '2026-10-14 10:41:51');
+INSERT INTO `libros` VALUES (4, 2, 2, 1985, 1992, 'Libro 2 (Bautizo 1985 - 1992)', 1, 2, 2, '2026-10-13 23:34:06', '2026-10-14 10:41:54');
+INSERT INTO `libros` VALUES (5, 1, 3, 1985, 1992, 'Libro 3 (Matrimonio 1985 - 1992)', 1, 2, 2, '2026-10-13 23:40:58', '2026-10-14 10:41:57');
+INSERT INTO `libros` VALUES (6, 2, 3, 1985, 1992, 'Libro 3 (Bautizo 1985 - 1992)', 1, 2, 2, '2026-10-13 23:42:42', '2026-10-14 10:42:04');
 
 -- ----------------------------
 -- Table structure for menus
@@ -478,13 +480,14 @@ CREATE TABLE `sessions`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id` ASC) USING BTREE,
   CONSTRAINT `sessions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of sessions
 -- ----------------------------
 INSERT INTO `sessions` VALUES (1, '6f33e1ad89678372823cb963a18ef13b', 1, '2025-02-17 20:19:53', '2025-02-17 20:19:53');
 INSERT INTO `sessions` VALUES (5, 'd762f29319815325df608b80ad868240', 2, '2026-10-13 21:02:34', '2026-10-13 21:02:34');
+INSERT INTO `sessions` VALUES (6, 'f79740e0f46bd8b836c4b3634364e749', 2, '2026-10-14 10:26:05', '2026-10-14 10:26:05');
 
 -- ----------------------------
 -- Table structure for tipos_acta

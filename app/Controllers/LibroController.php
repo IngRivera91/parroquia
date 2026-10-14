@@ -39,6 +39,8 @@ class LibroController extends BaseController
             'Id' => 'id',
             'Libro Numero' => 'numero',
             'Tipo Acta' => 'tipo_acta+label',
+            'Inicio' => 'ano_inicio',
+            'Fin' => 'ano_fin',
             'Activo' => 'activo'
         ];
 
