@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $label
+ * @property int $created_user_id
+ * @property int $updated_user_id
+ */
+class TipoActa extends Model
+{
+    const NOMBRE_TABLA = 'tipos_acta';
+    protected $table = 'tipos_acta';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'name',
+        'label',
+        'activo',
+        'created_user_id',
+        'updated_user_id',
+    ];
+}
