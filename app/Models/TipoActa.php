@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -28,4 +29,9 @@ class TipoActa extends Model
         'created_user_id',
         'updated_user_id',
     ];
+
+    public function libros(): HasMany
+    {
+        return $this->hasMany(Libro::class)->orderBy('numero','ASC');
+    }
 }
