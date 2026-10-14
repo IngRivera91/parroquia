@@ -11,7 +11,7 @@
  Target Server Version : 80403 (8.4.3)
  File Encoding         : 65001
 
- Date: 13/10/2026 22:51:19
+ Date: 13/10/2026 23:44:19
 */
 
 SET NAMES utf8mb4;
@@ -229,7 +229,7 @@ CREATE TABLE `libros`  (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `tipo_acta_id` bigint UNSIGNED NOT NULL,
   `numero` int UNSIGNED NOT NULL,
-  `label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `description_select` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `activo` tinyint NOT NULL DEFAULT 1,
   `created_user_id` bigint UNSIGNED NULL DEFAULT NULL,
   `updated_user_id` bigint UNSIGNED NULL DEFAULT NULL,
@@ -237,11 +237,17 @@ CREATE TABLE `libros`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `idx_libros_tipo_acta`(`tipo_acta_id` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of libros
 -- ----------------------------
+INSERT INTO `libros` VALUES (1, 1, 1, 'Matrimonio #1', 1, 2, 2, '2026-10-13 23:15:55', '2026-10-13 23:40:26');
+INSERT INTO `libros` VALUES (2, 2, 1, 'Bautizo #1', 1, 2, 2, '2026-10-13 23:33:36', '2026-10-13 23:40:22');
+INSERT INTO `libros` VALUES (3, 1, 2, 'Matrimonio #2', 1, 2, 2, '2026-10-13 23:33:49', '2026-10-13 23:40:44');
+INSERT INTO `libros` VALUES (4, 2, 2, 'Bautizo #2', 1, 2, 2, '2026-10-13 23:34:06', '2026-10-13 23:40:46');
+INSERT INTO `libros` VALUES (5, 1, 3, 'Matrimonio #3', 1, 2, 2, '2026-10-13 23:40:58', '2026-10-13 23:41:45');
+INSERT INTO `libros` VALUES (6, 2, 3, 'Bautizo #3', 1, 2, 2, '2026-10-13 23:42:42', '2026-10-13 23:42:42');
 
 -- ----------------------------
 -- Table structure for menus
@@ -494,12 +500,13 @@ CREATE TABLE `tipos_acta`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tipos_acta
 -- ----------------------------
 INSERT INTO `tipos_acta` VALUES (1, 'matrimonio', 'Matrimonio', 1, 2, 2, '2026-10-13 22:23:10', '2026-10-13 22:43:05');
+INSERT INTO `tipos_acta` VALUES (2, 'bautizo', 'Bautizo', 1, 2, 2, '2026-10-13 23:31:19', '2026-10-13 23:31:19');
 
 -- ----------------------------
 -- Table structure for users
