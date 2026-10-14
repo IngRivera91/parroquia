@@ -11,7 +11,7 @@
  Target Server Version : 80403 (8.4.3)
  File Encoding         : 65001
 
- Date: 13/10/2026 21:19:26
+ Date: 13/10/2026 22:51:19
 */
 
 SET NAMES utf8mb4;
@@ -452,11 +452,12 @@ CREATE TABLE `roles`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of roles
 -- ----------------------------
+INSERT INTO `roles` VALUES (1, 'titular', 'Titular', 1, 1, 1, '2026-10-13 22:50:56', '2026-10-13 22:50:56');
 
 -- ----------------------------
 -- Table structure for sessions
@@ -487,18 +488,18 @@ CREATE TABLE `tipos_acta`  (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `activo` tinyint NOT NULL DEFAULT 1,
   `created_user_id` bigint UNSIGNED NULL DEFAULT NULL,
   `updated_user_id` bigint UNSIGNED NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tipos_acta
 -- ----------------------------
+INSERT INTO `tipos_acta` VALUES (1, 'matrimonio', 'Matrimonio', 1, 2, 2, '2026-10-13 22:23:10', '2026-10-13 22:43:05');
 
 -- ----------------------------
 -- Table structure for users
