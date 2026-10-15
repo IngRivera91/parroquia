@@ -17,5 +17,15 @@
     <link rel="stylesheet" href="<?php echo APP_URL; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo APP_URL; ?>css/grupos.permisos.css">
 
+    <?php
+    $rutaArchivoCss = '';
+    if (isset($controladorActual) && isset($metodoActual)) {
+        $rutaArchivoCss = "css/{$controladorActual}.{$metodoActual}.css";
+    }
+    if(file_exists($rutaArchivoCss)) {
+        echo "<link rel='stylesheet' href='".$rutaArchivoCss."'>";
+    }
+    ?>
+
     <title><?= APP_NAME ?></title>
 </head>
