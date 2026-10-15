@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
+ * @property int $numero_titulares
  * @property string $name
  * @property string $label
  * @property int $created_user_id
@@ -25,6 +26,7 @@ class TipoActa extends Model
     protected $fillable = [
         'name',
         'label',
+        'numero_titulares',
         'activo',
         'created_user_id',
         'updated_user_id',

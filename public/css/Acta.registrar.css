@@ -1,1 +1,300 @@
+/* =========================================
+   INFORMACIÓN DEL ACTA
+   ========================================= */
 
+.acta-info {
+    background: #ffffff !important;
+    border: 1px solid #e1e5e8 !important;
+    border-radius: 6px !important;
+    padding: 18px 22px !important;
+    margin-bottom: 18px !important;
+}
+
+
+/* =========================================
+   ENCABEZADO
+   ========================================= */
+
+.acta-info-header {
+    border-bottom: 1px solid #e1e5e8 !important;
+    margin-bottom: 16px !important;
+    padding-bottom: 8px !important;
+}
+
+.acta-info-header h4 {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+
+
+/* =========================================
+   CAMPOS
+   ========================================= */
+
+.acta-info .form-group {
+    margin-bottom: 12px !important;
+}
+
+
+/* =========================================
+   LABELS
+   ========================================= */
+
+.acta-info label {
+    display: block !important;
+
+    margin-bottom: 5px !important;
+
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+
+/* =========================================
+   INPUTS Y SELECTS
+   ========================================= */
+
+.acta-info input.form-control,
+.acta-info select.form-control {
+    width: 100% !important;
+
+    height: 38px !important;
+
+    padding: 6px 10px !important;
+
+    border: 1px solid #d5dbe0 !important;
+    border-radius: 5px !important;
+
+    background: #ffffff !important;
+
+    font-size: 14px !important;
+
+    box-shadow: none !important;
+
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease !important;
+}
+
+
+/* =========================================
+   TEXTAREA
+   ========================================= */
+
+.acta-info textarea.form-control {
+    width: 100% !important;
+
+    min-height: 80px !important;
+
+    padding: 8px 10px !important;
+
+    border: 1px solid #d5dbe0 !important;
+    border-radius: 5px !important;
+
+    background: #ffffff !important;
+
+    font-size: 14px !important;
+
+    resize: vertical !important;
+
+    box-shadow: none !important;
+
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease !important;
+}
+
+
+/* =========================================
+   HOVER
+   ========================================= */
+
+.acta-info input.form-control:hover,
+.acta-info select.form-control:hover,
+.acta-info textarea.form-control:hover {
+    border-color: #aeb8c0 !important;
+}
+
+
+/* =========================================
+   FOCUS
+   ========================================= */
+
+.acta-info input.form-control:focus,
+.acta-info select.form-control:focus,
+.acta-info textarea.form-control:focus {
+    border-color: #26a6c9 !important;
+
+    outline: none !important;
+
+    box-shadow:
+            0 0 0 2px rgba(38, 166, 201, 0.10) !important;
+}
+
+
+/* =========================================
+   SELECT DESHABILITADO
+   ========================================= */
+
+.acta-info select.form-control:disabled {
+    background-color: #f1f3f5 !important;
+
+    color: #8a9298 !important;
+
+    cursor: not-allowed !important;
+
+    opacity: 1 !important;
+}
+
+
+/* =========================================
+   PLACEHOLDER
+   ========================================= */
+
+.acta-info input::placeholder,
+.acta-info textarea::placeholder {
+    color: #9aa3aa !important;
+
+    opacity: 1 !important;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .acta-info {
+        padding: 15px !important;
+    }
+
+    .acta-info .form-group {
+        margin-bottom: 10px !important;
+    }
+
+}
+
+
+/* =========================================
+   TITULAR
+   ========================================= */
+
+.acta-titular {
+    background: #ffffff !important;
+    border: 1px solid #e1e5e8 !important;
+    border-radius: 6px !important;
+    padding: 18px 22px !important;
+    margin-bottom: 18px !important;
+}
+
+
+/* =========================================
+   ENCABEZADO
+   ========================================= */
+
+.acta-titular-header {
+    border-bottom: 1px solid #e1e5e8 !important;
+    margin-bottom: 16px !important;
+    padding-bottom: 8px !important;
+}
+
+.acta-titular-header h4 {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+
+
+/* =========================================
+   CAMPOS
+   ========================================= */
+
+.acta-titular .form-group {
+    margin-bottom: 12px !important;
+}
+
+
+/* =========================================
+   LABELS
+   ========================================= */
+
+.acta-titular label {
+    display: block !important;
+
+    margin-bottom: 5px !important;
+
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+.acta-titular input.form-control {
+    width: 100% !important;
+
+    height: 38px !important;
+
+    padding: 6px 10px !important;
+
+    border: 1px solid #d5dbe0 !important;
+    border-radius: 5px !important;
+
+    background: #ffffff !important;
+
+    font-size: 14px !important;
+
+    box-shadow: none !important;
+
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease !important;
+}
+
+
+/* =========================================
+   HOVER
+   ========================================= */
+
+.acta-titular input.form-control:hover {
+    border-color: #aeb8c0 !important;
+}
+
+
+/* =========================================
+   FOCUS
+   ========================================= */
+
+.acta-titular input.form-control:focus {
+    border-color: #26a6c9 !important;
+
+    outline: none !important;
+
+    box-shadow:
+            0 0 0 2px rgba(38, 166, 201, 0.10) !important;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .acta-titular {
+        padding: 15px !important;
+    }
+
+    .acta-titular .form-group {
+        margin-bottom: 10px !important;
+    }
+
+}

@@ -15,6 +15,7 @@ class ActaController extends BaseController
 {
 
     public array $tiposActa;
+    public string $llave;
     public function __construct()
     {
         $this->model = Acta::class;
@@ -59,14 +60,15 @@ class ActaController extends BaseController
 
     public function registrar()
     {
-
+        $this->breadcrumb = false;
+        $this->llave = $this->llaveFormulario;
     }
 
 
 
     public function registrarBd(bool $noRedirect = false)
     {
-
+        Html::Debug($_POST);exit;
     }
 
 
