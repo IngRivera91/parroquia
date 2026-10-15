@@ -11,7 +11,7 @@
  Target Server Version : 80403 (8.4.3)
  File Encoding         : 65001
 
- Date: 14/10/2026 10:58:32
+ Date: 14/10/2026 22:57:43
 */
 
 SET NAMES utf8mb4;
@@ -36,7 +36,7 @@ CREATE TABLE `actas`  (
   INDEX `idx_actas_libro`(`libro_id` ASC) USING BTREE,
   INDEX `idx_actas_hoja`(`libro_id` ASC, `numero_hoja` ASC) USING BTREE,
   INDEX `idx_actas_numero`(`libro_id` ASC, `numero_acta` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of actas
@@ -83,7 +83,7 @@ CREATE TABLE `group_method`  (
   INDEX `method_id`(`method_id` ASC) USING BTREE,
   CONSTRAINT `group_method_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `group_method_ibfk_2` FOREIGN KEY (`method_id`) REFERENCES `methods` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 122 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 126 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of group_method
@@ -199,6 +199,10 @@ INSERT INTO `group_method` VALUES (118, 2, 53, NULL, NULL, '2026-10-13 21:02:13'
 INSERT INTO `group_method` VALUES (119, 2, 55, NULL, NULL, '2026-10-13 21:02:13', '2026-10-13 21:02:13');
 INSERT INTO `group_method` VALUES (120, 2, 48, NULL, NULL, '2026-10-13 21:02:14', '2026-10-13 21:02:14');
 INSERT INTO `group_method` VALUES (121, 2, 50, NULL, NULL, '2026-10-13 21:02:14', '2026-10-13 21:02:14');
+INSERT INTO `group_method` VALUES (122, 2, 80, NULL, NULL, '2026-10-14 22:03:54', '2026-10-14 22:03:54');
+INSERT INTO `group_method` VALUES (123, 2, 81, NULL, NULL, '2026-10-14 22:28:02', '2026-10-14 22:28:02');
+INSERT INTO `group_method` VALUES (124, 1, 81, NULL, NULL, '2026-10-14 22:28:11', '2026-10-14 22:28:11');
+INSERT INTO `group_method` VALUES (125, 1, 80, NULL, NULL, '2026-10-14 22:28:11', '2026-10-14 22:28:11');
 
 -- ----------------------------
 -- Table structure for groups
@@ -302,7 +306,7 @@ CREATE TABLE `methods`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `menu_id`(`menu_id` ASC) USING BTREE,
   CONSTRAINT `methods_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 80 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 82 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of methods
@@ -386,6 +390,8 @@ INSERT INTO `methods` VALUES (76, 'desactivarBd', NULL, 'Desactivar', 'fas fa-pa
 INSERT INTO `methods` VALUES (77, 'modificar', NULL, 'Modificar', 'fas fa-pencil-alt', 9, 0, 1, 1, NULL, NULL, '2026-10-13 20:58:34', '2026-10-13 20:58:34');
 INSERT INTO `methods` VALUES (78, 'eliminarBd', NULL, 'Eliminar', 'fas fa-trash', 9, 0, 1, 1, NULL, NULL, '2026-10-13 20:58:34', '2026-10-13 20:58:34');
 INSERT INTO `methods` VALUES (79, 'modificarBd', NULL, NULL, NULL, 9, 0, 0, 1, NULL, NULL, '2026-10-13 20:58:34', '2026-10-13 20:58:34');
+INSERT INTO `methods` VALUES (80, 'getNumeroTitulares ', '', '', '', 6, 0, 0, 1, 1, 1, '2026-10-14 22:03:44', '2026-10-14 22:03:44');
+INSERT INTO `methods` VALUES (81, 'getLibrosByTipoActa', '', '', '', 6, 0, 0, 1, 1, 1, '2026-10-14 22:27:49', '2026-10-14 22:27:49');
 
 -- ----------------------------
 -- Table structure for methods_base
@@ -480,7 +486,7 @@ CREATE TABLE `sessions`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id` ASC) USING BTREE,
   CONSTRAINT `sessions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of sessions
@@ -488,6 +494,11 @@ CREATE TABLE `sessions`  (
 INSERT INTO `sessions` VALUES (1, '6f33e1ad89678372823cb963a18ef13b', 1, '2025-02-17 20:19:53', '2025-02-17 20:19:53');
 INSERT INTO `sessions` VALUES (5, 'd762f29319815325df608b80ad868240', 2, '2026-10-13 21:02:34', '2026-10-13 21:02:34');
 INSERT INTO `sessions` VALUES (6, 'f79740e0f46bd8b836c4b3634364e749', 2, '2026-10-14 10:26:05', '2026-10-14 10:26:05');
+INSERT INTO `sessions` VALUES (7, '362bc4abb1a28255590a6147f77a10fb', 2, '2026-10-14 20:39:45', '2026-10-14 20:39:45');
+INSERT INTO `sessions` VALUES (8, '484606cc3f4eaf82c157dfb8dc8fc9d9', 2, '2026-10-14 21:40:59', '2026-10-14 21:40:59');
+INSERT INTO `sessions` VALUES (9, '60b6717989421fd2d3b60cf908992ee4', 1, '2026-10-14 22:03:14', '2026-10-14 22:03:14');
+INSERT INTO `sessions` VALUES (10, '2bd054884859cd13dabe78ed06130049', 1, '2026-10-14 22:27:23', '2026-10-14 22:27:23');
+INSERT INTO `sessions` VALUES (11, 'cf8eb977565b76668bdc32c07a5a2649', 1, '2026-10-14 22:34:32', '2026-10-14 22:34:32');
 
 -- ----------------------------
 -- Table structure for tipos_acta
