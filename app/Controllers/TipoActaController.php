@@ -13,6 +13,10 @@ use App\Models\TipoActa;
 
 class TipoActaController extends BaseController
 {
+    private array $selectNumeroDeTitulares = [
+        ["id" => 1, 'texto' => 1],
+        ["id" => 2, 'texto' => 2]
+    ];
     public function __construct()
     {
         $this->model = TipoActa::class;
@@ -57,7 +61,18 @@ class TipoActaController extends BaseController
         $this->breadcrumb = true;
 
         $this->htmlInputFormulario[] = Html::inputTextRequired(4,'Tipo Acta',1,'label');
-        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Numero Titulares',2,'numero_titulares');
+        $this->htmlInputFormulario[] = Html::selectConBuscador(
+            'selectNumeroDeTitulares',
+            'id',
+            'Numero Titulares',
+            'numero_titulares',
+            4,
+            $this->selectNumeroDeTitulares,
+            'texto',
+            '1',
+            1,
+            ''
+        );
         $this->htmlInputFormulario[] = Html::selectActivo('Activo','activo',4,'1',2);
 
         $this->htmlInputFormulario[] = Html::submit('Registrar',$this->llaveFormulario,4);
@@ -84,7 +99,18 @@ class TipoActaController extends BaseController
         $registro = $this->registro;
 
         $this->htmlInputFormulario[] = Html::inputTextRequired(4,'Tipo Acta',1,'label','',$registro['label']);
-        $this->htmlInputFormulario[] = Html::inputTextRequired(4,'Numero Titulares',1,'numero_titulares','',$registro['numero_titulares']);
+        $this->htmlInputFormulario[] = Html::selectConBuscador(
+            'selectNumeroDeTitulares',
+            'id',
+            'Numero Titulares',
+            'numero_titulares',
+            4,
+            $this->selectNumeroDeTitulares,
+            'texto',
+            $registro['numero_titulares'],
+            1,
+            ''
+        );
         $this->htmlInputFormulario[] = Html::selectActivo('Activo','activo',4,$registro['activo'],2);
         $this->htmlInputFormulario[] = Html::submit('Modificar',$this->llaveFormulario,4);
     }

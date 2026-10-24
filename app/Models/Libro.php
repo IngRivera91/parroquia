@@ -27,6 +27,8 @@ class Libro extends Model
     protected $fillable = [
         'tipo_acta_id',
         'numero',
+        'ano_inicio',
+        'ano_fin',
         'description_select',
         'label',
         'activo',
