@@ -11,7 +11,7 @@
  Target Server Version : 80403 (8.4.3)
  File Encoding         : 65001
 
- Date: 14/10/2026 22:57:43
+ Date: 23/10/2026 23:42:08
 */
 
 SET NAMES utf8mb4;
@@ -28,6 +28,7 @@ CREATE TABLE `actas`  (
   `numero_acta` int UNSIGNED NOT NULL,
   `fecha` date NULL DEFAULT NULL,
   `observaciones` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `activo` tinyint NULL DEFAULT NULL,
   `created_user_id` bigint UNSIGNED NULL DEFAULT NULL,
   `updated_user_id` bigint UNSIGNED NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -36,7 +37,7 @@ CREATE TABLE `actas`  (
   INDEX `idx_actas_libro`(`libro_id` ASC) USING BTREE,
   INDEX `idx_actas_hoja`(`libro_id` ASC, `numero_hoja` ASC) USING BTREE,
   INDEX `idx_actas_numero`(`libro_id` ASC, `numero_acta` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of actas
@@ -59,8 +60,9 @@ CREATE TABLE `actas_personas`  (
   UNIQUE INDEX `uk_acta_persona_rol`(`acta_id` ASC, `persona_id` ASC, `rol_id` ASC) USING BTREE,
   INDEX `idx_actas_personas_acta`(`acta_id` ASC) USING BTREE,
   INDEX `idx_actas_personas_persona`(`persona_id` ASC) USING BTREE,
-  INDEX `idx_actas_personas_rol`(`rol_id` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  INDEX `idx_actas_personas_rol`(`rol_id` ASC) USING BTREE,
+  CONSTRAINT `actas_personas_ibfk_1` FOREIGN KEY (`persona_id`) REFERENCES `personas` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of actas_personas
@@ -83,7 +85,7 @@ CREATE TABLE `group_method`  (
   INDEX `method_id`(`method_id` ASC) USING BTREE,
   CONSTRAINT `group_method_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `group_method_ibfk_2` FOREIGN KEY (`method_id`) REFERENCES `methods` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 126 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 128 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of group_method
@@ -167,12 +169,6 @@ INSERT INTO `group_method` VALUES (86, 1, 77, NULL, NULL, '2026-10-13 20:58:48',
 INSERT INTO `group_method` VALUES (87, 1, 79, NULL, NULL, '2026-10-13 20:58:48', '2026-10-13 20:58:48');
 INSERT INTO `group_method` VALUES (88, 1, 72, NULL, NULL, '2026-10-13 20:58:49', '2026-10-13 20:58:49');
 INSERT INTO `group_method` VALUES (89, 1, 74, NULL, NULL, '2026-10-13 20:58:50', '2026-10-13 20:58:50');
-INSERT INTO `group_method` VALUES (90, 2, 67, NULL, NULL, '2026-10-13 21:01:50', '2026-10-13 21:01:50');
-INSERT INTO `group_method` VALUES (91, 2, 68, NULL, NULL, '2026-10-13 21:01:50', '2026-10-13 21:01:50');
-INSERT INTO `group_method` VALUES (92, 2, 70, NULL, NULL, '2026-10-13 21:01:50', '2026-10-13 21:01:50');
-INSERT INTO `group_method` VALUES (93, 2, 65, NULL, NULL, '2026-10-13 21:01:51', '2026-10-13 21:01:51');
-INSERT INTO `group_method` VALUES (94, 2, 69, NULL, NULL, '2026-10-13 21:01:51', '2026-10-13 21:01:51');
-INSERT INTO `group_method` VALUES (95, 2, 71, NULL, NULL, '2026-10-13 21:01:52', '2026-10-13 21:01:52');
 INSERT INTO `group_method` VALUES (96, 2, 64, NULL, NULL, '2026-10-13 21:01:52', '2026-10-13 21:01:52');
 INSERT INTO `group_method` VALUES (97, 2, 66, NULL, NULL, '2026-10-13 21:01:52', '2026-10-13 21:01:52');
 INSERT INTO `group_method` VALUES (98, 2, 59, NULL, NULL, '2026-10-13 21:01:56', '2026-10-13 21:01:56');
@@ -183,14 +179,7 @@ INSERT INTO `group_method` VALUES (102, 2, 61, NULL, NULL, '2026-10-13 21:01:58'
 INSERT INTO `group_method` VALUES (103, 2, 63, NULL, NULL, '2026-10-13 21:01:59', '2026-10-13 21:01:59');
 INSERT INTO `group_method` VALUES (104, 2, 56, NULL, NULL, '2026-10-13 21:01:59', '2026-10-13 21:01:59');
 INSERT INTO `group_method` VALUES (105, 2, 58, NULL, NULL, '2026-10-13 21:02:00', '2026-10-13 21:02:00');
-INSERT INTO `group_method` VALUES (106, 2, 75, NULL, NULL, '2026-10-13 21:02:05', '2026-10-13 21:02:05');
-INSERT INTO `group_method` VALUES (107, 2, 76, NULL, NULL, '2026-10-13 21:02:05', '2026-10-13 21:02:05');
-INSERT INTO `group_method` VALUES (108, 2, 78, NULL, NULL, '2026-10-13 21:02:06', '2026-10-13 21:02:06');
 INSERT INTO `group_method` VALUES (109, 2, 73, NULL, NULL, '2026-10-13 21:02:06', '2026-10-13 21:02:06');
-INSERT INTO `group_method` VALUES (110, 2, 77, NULL, NULL, '2026-10-13 21:02:07', '2026-10-13 21:02:07');
-INSERT INTO `group_method` VALUES (111, 2, 79, NULL, NULL, '2026-10-13 21:02:07', '2026-10-13 21:02:07');
-INSERT INTO `group_method` VALUES (112, 2, 72, NULL, NULL, '2026-10-13 21:02:08', '2026-10-13 21:02:08');
-INSERT INTO `group_method` VALUES (113, 2, 74, NULL, NULL, '2026-10-13 21:02:08', '2026-10-13 21:02:08');
 INSERT INTO `group_method` VALUES (114, 2, 51, NULL, NULL, '2026-10-13 21:02:11', '2026-10-13 21:02:11');
 INSERT INTO `group_method` VALUES (115, 2, 52, NULL, NULL, '2026-10-13 21:02:11', '2026-10-13 21:02:11');
 INSERT INTO `group_method` VALUES (116, 2, 54, NULL, NULL, '2026-10-13 21:02:12', '2026-10-13 21:02:12');
@@ -203,6 +192,8 @@ INSERT INTO `group_method` VALUES (122, 2, 80, NULL, NULL, '2026-10-14 22:03:54'
 INSERT INTO `group_method` VALUES (123, 2, 81, NULL, NULL, '2026-10-14 22:28:02', '2026-10-14 22:28:02');
 INSERT INTO `group_method` VALUES (124, 1, 81, NULL, NULL, '2026-10-14 22:28:11', '2026-10-14 22:28:11');
 INSERT INTO `group_method` VALUES (125, 1, 80, NULL, NULL, '2026-10-14 22:28:11', '2026-10-14 22:28:11');
+INSERT INTO `group_method` VALUES (126, 1, 82, NULL, NULL, '2026-10-23 22:45:56', '2026-10-23 22:45:56');
+INSERT INTO `group_method` VALUES (127, 2, 82, NULL, NULL, '2026-10-23 22:46:41', '2026-10-23 22:46:41');
 
 -- ----------------------------
 -- Table structure for groups
@@ -248,12 +239,6 @@ CREATE TABLE `libros`  (
 -- ----------------------------
 -- Records of libros
 -- ----------------------------
-INSERT INTO `libros` VALUES (1, 1, 1, 1985, 1992, 'Libro 1 (Matrimonio 1985 - 1992)', 1, 2, 2, '2026-10-13 23:15:55', '2026-10-14 10:31:49');
-INSERT INTO `libros` VALUES (2, 2, 1, 1985, 1992, 'Libro 1 (Bautizo 1985 - 1992)', 1, 2, 2, '2026-10-13 23:33:36', '2026-10-14 10:41:47');
-INSERT INTO `libros` VALUES (3, 1, 2, 1985, 1992, 'Libro 2 (Matrimonio 1985 - 1992)', 1, 2, 2, '2026-10-13 23:33:49', '2026-10-14 10:41:51');
-INSERT INTO `libros` VALUES (4, 2, 2, 1985, 1992, 'Libro 2 (Bautizo 1985 - 1992)', 1, 2, 2, '2026-10-13 23:34:06', '2026-10-14 10:41:54');
-INSERT INTO `libros` VALUES (5, 1, 3, 1985, 1992, 'Libro 3 (Matrimonio 1985 - 1992)', 1, 2, 2, '2026-10-13 23:40:58', '2026-10-14 10:41:57');
-INSERT INTO `libros` VALUES (6, 2, 3, 1985, 1992, 'Libro 3 (Bautizo 1985 - 1992)', 1, 2, 2, '2026-10-13 23:42:42', '2026-10-14 10:42:04');
 
 -- ----------------------------
 -- Table structure for menus
@@ -270,7 +255,7 @@ CREATE TABLE `menus`  (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of menus
@@ -284,6 +269,7 @@ INSERT INTO `menus` VALUES (6, 'TipoActa', 'TIPO ACTA', 'fas fa-bookmark', 1, 1,
 INSERT INTO `menus` VALUES (7, 'Libro', 'LIBROS', 'fas fa-book', 1, 1, 1, '2026-10-13 20:54:45', '2026-10-13 20:54:45');
 INSERT INTO `menus` VALUES (8, 'Acta', 'ACTAS', 'fas fa-address-card', 1, 1, 1, '2026-10-13 20:56:48', '2026-10-13 21:00:05');
 INSERT INTO `menus` VALUES (9, 'Persona', 'PERSONAS', 'fas fa-user', 1, 1, 1, '2026-10-13 20:58:34', '2026-10-13 20:58:34');
+INSERT INTO `menus` VALUES (10, 'Prueba Rollback', 'PRUEBA ROLLBACK', 'fas fa-test', 1, 1, 1, '2026-10-16 18:45:08', '2026-10-16 18:45:08');
 
 -- ----------------------------
 -- Table structure for methods
@@ -306,7 +292,7 @@ CREATE TABLE `methods`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `menu_id`(`menu_id` ASC) USING BTREE,
   CONSTRAINT `methods_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 82 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 83 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of methods
@@ -392,6 +378,7 @@ INSERT INTO `methods` VALUES (78, 'eliminarBd', NULL, 'Eliminar', 'fas fa-trash'
 INSERT INTO `methods` VALUES (79, 'modificarBd', NULL, NULL, NULL, 9, 0, 0, 1, NULL, NULL, '2026-10-13 20:58:34', '2026-10-13 20:58:34');
 INSERT INTO `methods` VALUES (80, 'getNumeroTitulares ', '', '', '', 6, 0, 0, 1, 1, 1, '2026-10-14 22:03:44', '2026-10-14 22:03:44');
 INSERT INTO `methods` VALUES (81, 'getLibrosByTipoActa', '', '', '', 6, 0, 0, 1, 1, 1, '2026-10-14 22:27:49', '2026-10-14 22:27:49');
+INSERT INTO `methods` VALUES (82, 'verActas', ' ', 'Ver Actas', 'fas fa-eye', 9, 0, 1, 1, 1, 1, '2026-10-23 22:45:17', '2026-10-23 22:45:17');
 
 -- ----------------------------
 -- Table structure for methods_base
@@ -446,7 +433,7 @@ CREATE TABLE `personas`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `idx_personas_name`(`name` ASC) USING BTREE,
   INDEX `idx_personas_apellidos`(`apellido_paterno` ASC, `apellido_materno` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of personas
@@ -486,7 +473,7 @@ CREATE TABLE `sessions`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id` ASC) USING BTREE,
   CONSTRAINT `sessions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of sessions
@@ -499,6 +486,9 @@ INSERT INTO `sessions` VALUES (8, '484606cc3f4eaf82c157dfb8dc8fc9d9', 2, '2026-1
 INSERT INTO `sessions` VALUES (9, '60b6717989421fd2d3b60cf908992ee4', 1, '2026-10-14 22:03:14', '2026-10-14 22:03:14');
 INSERT INTO `sessions` VALUES (10, '2bd054884859cd13dabe78ed06130049', 1, '2026-10-14 22:27:23', '2026-10-14 22:27:23');
 INSERT INTO `sessions` VALUES (11, 'cf8eb977565b76668bdc32c07a5a2649', 1, '2026-10-14 22:34:32', '2026-10-14 22:34:32');
+INSERT INTO `sessions` VALUES (12, 'ec8323bf3f1531856f4ec8572a4b8386', 2, '2026-10-15 10:21:43', '2026-10-15 10:21:43');
+INSERT INTO `sessions` VALUES (13, '63d8868b0b43781a7267155d071f683e', 2, '2026-10-16 19:01:18', '2026-10-16 19:01:18');
+INSERT INTO `sessions` VALUES (16, 'eeecaf1c582435624da4cf9fba906ca9', 2, '2026-10-23 22:47:01', '2026-10-23 22:47:01');
 
 -- ----------------------------
 -- Table structure for tipos_acta
@@ -515,13 +505,11 @@ CREATE TABLE `tipos_acta`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tipos_acta
 -- ----------------------------
-INSERT INTO `tipos_acta` VALUES (1, 'matrimonio', 'Matrimonio', 2, 1, 2, 2, '2026-10-13 22:23:10', '2026-10-13 22:43:05');
-INSERT INTO `tipos_acta` VALUES (2, 'bautizo', 'Bautizo', 1, 1, 2, 2, '2026-10-13 23:31:19', '2026-10-13 23:31:19');
 
 -- ----------------------------
 -- Table structure for users
