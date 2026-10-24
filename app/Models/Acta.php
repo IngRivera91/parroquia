@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -14,6 +15,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $observaciones
  * @property int $created_user_id
  * @property int $updated_user_id
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, ActaPersona> $actas_personas
+ * @property-read Libro $libro
  */
 class Acta extends Model
 {
@@ -39,5 +42,10 @@ class Acta extends Model
     public function actas_personas(): HasMany
     {
         return $this->hasMany(ActaPersona::class);
+    }
+
+    public function libro(): BelongsTo
+    {
+        return $this->belongsTo(Libro::class);
     }
 }

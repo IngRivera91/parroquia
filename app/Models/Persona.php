@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $activo
  * @property int|null $created_user_id
  * @property int|null $updated_user_id
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, ActaPersona> $actas_personas
  */
 class Persona extends Model
 {

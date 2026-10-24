@@ -4,12 +4,11 @@ namespace App\Controllers;
 
 use App\Class\BaseController;
 use App\Class\Html;
-use App\Models\Libro;
 use App\Models\Persona;
-use App\Models\TipoActa;
 
 class PersonaController extends BaseController
 {
+    public Persona $persona;
     public function __construct()
     {
         $this->model = Persona::class;
@@ -56,6 +55,25 @@ class PersonaController extends BaseController
 
         $tablaCampo = 'Persona+apellido_materno';
         $this->htmlInputFiltros[$tablaCampo] = Html::inputText($col,'Apellido Materno',1,$tablaCampo,$placeholder,$datos[$tablaCampo]);
+    }
+
+    public function verActas (bool $noRedirect = false)
+    {
+        $this->breadcrumb = false;
+
+        $this->obtieneActas();
+    }
+
+    private function obtieneActas(): void
+    {
+        $registroId = $this->validaRegistoId();
+
+        $this->persona = Persona::query()
+            ->with([
+                'actas_personas.acta.libro.tipo_acta',
+                'actas_personas.rol',
+            ])
+            ->find($registroId);
     }
 
 
