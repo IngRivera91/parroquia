@@ -176,6 +176,9 @@ class ActaController extends BaseController
 
     private function obtieneOCreaPersona(array $datos): Persona
     {
+
+        $datos = $this->normalizaDatosPersona($datos);
+
         $consulta = Persona::query()
             ->whereRaw(
                 'LOWER(name) = LOWER(?)',
@@ -226,6 +229,21 @@ class ActaController extends BaseController
         return $persona;
     }
 
+    private function normalizaDatosPersona(array $datos): array
+    {
+        foreach ([
+                     'name',
+                     'apellido_paterno',
+                     'apellido_materno'
+                 ] as $campo) {
+
+            if (isset($datos[$campo])) {
+                $datos[$campo] = trim($datos[$campo]);
+            }
+        }
+
+        return $datos;
+    }
 
 
 

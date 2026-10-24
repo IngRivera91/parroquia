@@ -13,7 +13,7 @@ class Base extends Exception
     private array $errorInformacion;
     private string $codigo;
 
-    public function __construct(string $mensaje = '' , Base $errorAnterior = null , string $codigo = '' , string $consultaSQL = '' )
+    public function __construct(string $mensaje = '' , ?Base $errorAnterior = null , string $codigo = '' , string $consultaSQL = '' )
     {
 
         if (!is_null($errorAnterior)) {
