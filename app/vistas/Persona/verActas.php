@@ -101,8 +101,8 @@ $nombreCompleto = trim(
 
                                 <th>Tipo de acta</th>
                                 <th>Libro</th>
-                                <th>Acta</th>
                                 <th>Hoja</th>
+                                <th>Acta</th>
                                 <th>Fecha</th>
                                 <th>Rol</th>
 
@@ -153,7 +153,7 @@ $nombreCompleto = trim(
                                         <strong>
 
                                             <?= htmlspecialchars(
-                                                $acta['numero_acta'] ?? ''
+                                            $acta['numero_hoja'] ?? ''
                                             ) ?>
 
                                         </strong>
@@ -164,7 +164,7 @@ $nombreCompleto = trim(
                                     <td>
 
                                         <?= htmlspecialchars(
-                                            $acta['numero_hoja'] ?? ''
+                                            $acta['numero_acta'] ?? ''
                                         ) ?>
 
                                     </td>
