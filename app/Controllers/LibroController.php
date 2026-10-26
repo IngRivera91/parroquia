@@ -95,10 +95,10 @@ class LibroController extends BaseController
             1
         );
 
-        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Numero',1,'numero','','',true);
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Numero del Libro',1,'numero','','',true);
 
-        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Año inicio',1,'ano_inicio');
-        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Año fin',1,'ano_fin');
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Año inicio del Libro',1,'ano_inicio');
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Año fin del Libro',1,'ano_fin');
 
         $this->htmlInputFormulario[] = Html::selectActivo('Activo','activo',4,'1',2);
 
@@ -130,10 +130,10 @@ class LibroController extends BaseController
             2
         );
 
-        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Numero',1,'numero','',$registro['numero'],true);
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Numero del Libro',1,'numero','',$registro['numero'],true);
 
-        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Año inicio',1,'ano_inicio','',$registro['ano_inicio']);
-        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Año fin',1,'ano_fin','',$registro['ano_fin']);
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Año inicio del Libro',1,'ano_inicio','',$registro['ano_inicio']);
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Año fin del Libro',1,'ano_fin','',$registro['ano_fin']);
 
         $this->htmlInputFormulario[] = Html::selectActivo('Activo','activo',4,$registro['activo'],2);
         $this->htmlInputFormulario[] = Html::submit('Modificar',$this->llaveFormulario,4);
