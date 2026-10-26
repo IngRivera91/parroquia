@@ -146,8 +146,8 @@ class ActaController extends BaseController
 
             $mensaje = 'datos registrados';
             Redireccion::enviar(
-                'Persona',
-                'lista',
+                $this->nameController,
+                'registrar',
                 SESSION_ID,
                 $mensaje
             );
