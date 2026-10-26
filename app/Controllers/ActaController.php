@@ -88,7 +88,6 @@ class ActaController extends BaseController
                 'numero_hoja' => $datos['numero_hoja'],
                 'numero_acta' => $datos['numero_acta'],
                 'fecha' => $datos['fecha'] ?: null,
-                'observaciones' => $datos['observaciones'] ?: null,
                 'activo' => 1,
                 'created_user_id' => USUARIO_ID,
                 'updated_user_id' => USUARIO_ID,
